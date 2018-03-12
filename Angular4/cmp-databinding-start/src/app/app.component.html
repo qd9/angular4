@@ -1,0 +1,22 @@
+<div class="container">
+    <app-add-list (serverCreated)="onAddServer($event)" (bluepointCreated)="onAddBluePoint($event)"></app-add-list>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12">
+            <button class="btn btn-primary" (click)="onChangeContent()">Change the first content</button>
+            <button class="btn btn-danger" (click)="onDeleteContent()">Remove the first content</button>
+            <app-server-list *ngFor="let element of serverElements" [serverElement]="element" [name]="element.name">
+                <!-- if we want to add some paragraph here, we should add <ng-content> in server-list-->
+                <!--  
+                we can access the #paraContent from server-list.ts by using @ContentChild(#name) name;
+                it will add the content in <p>
+                <p #paraContent>
+
+                    <strong *ngIf="element.type === 'server'" style="color: red">{{ element.content }}</strong>
+                    <em *ngIf="element.type === 'blueprint'">{{ element.content }}</em>
+                </p>
+                -->
+            </app-server-list>
+        </div>
+    </div>
+</div>
